@@ -56,7 +56,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6441667799431606036, guid: fa93fc8c0896ff34ebffeadb941c2e97, type: 2}
+  - {fileID: 8180064346972892732, guid: e60a1e320f12c5a46bb2848596735e48, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -114,8 +114,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Hola, soy un post-it
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fa93fc8c0896ff34ebffeadb941c2e97, type: 2}
-  m_sharedMaterial: {fileID: -6441667799431606036, guid: fa93fc8c0896ff34ebffeadb941c2e97,
+  m_fontAsset: {fileID: 11400000, guid: e60a1e320f12c5a46bb2848596735e48, type: 2}
+  m_sharedMaterial: {fileID: 8180064346972892732, guid: e60a1e320f12c5a46bb2848596735e48,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -141,13 +141,13 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 4.5
+  m_fontSize: 4.85
   m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 2
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_textAlignment: 514
   m_characterSpacing: 0
   m_wordSpacing: 0
