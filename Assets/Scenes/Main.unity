@@ -126,19 +126,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2072455055}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &19662945
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 19662944}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.14, z: 0.14}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &19662948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,25 +143,25 @@ MonoBehaviour:
     needsReinit: 0
   collidingObject: {fileID: 0}
   objectInHand: {fileID: 0}
---- !u!1 &274865332 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 144230, guid: dc06161b6d97feb419f45f03b62e14b9,
-    type: 3}
-  m_PrefabInstance: {fileID: 2072455055}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &274865333
+--- !u!65 &19662949
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 274865332}
+  m_GameObject: {fileID: 19662944}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.05, y: 0.14, z: 0.14}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &274865332 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 144230, guid: dc06161b6d97feb419f45f03b62e14b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 2072455055}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &274865336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,6 +179,19 @@ MonoBehaviour:
     needsReinit: 0
   collidingObject: {fileID: 0}
   objectInHand: {fileID: 0}
+--- !u!65 &274865337
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274865332}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.05, y: 0.14, z: 0.14}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &308621450
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -850,6 +850,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13693334, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11455280, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

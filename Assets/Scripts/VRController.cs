@@ -7,13 +7,14 @@ using Valve.VR.InteractionSystem;
 public class VRController : MonoBehaviour
 {
 
-    public SteamVR_Action_Boolean m_GrabAction = null;
+    private SteamVR_Action_Boolean grabPinchAction = null;
 
     private SteamVR_Behaviour_Pose m_Pose = null;
 
     void Awake()
     {
         m_Pose = GetComponent<SteamVR_Behaviour_Pose>();
+        grabPinchAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("GrabPinch");
     }
 
     // Use this for initialization
@@ -24,12 +25,12 @@ public class VRController : MonoBehaviour
 
     void Update()
     {
-        if (m_GrabAction.GetStateDown(m_Pose.inputSource))
+        if (grabPinchAction.GetStateDown(m_Pose.inputSource))
         {
             GrabObject();
         }
 
-        if (m_GrabAction.GetStateUp(m_Pose.inputSource))
+        if (grabPinchAction.GetStateUp(m_Pose.inputSource))
         {
             ReleaseObject();
         }
