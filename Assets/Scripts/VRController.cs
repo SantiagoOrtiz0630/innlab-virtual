@@ -53,7 +53,7 @@ public class VRController : MonoBehaviour
 
     private void GrabObject() // Picking up object and assigning objectInHand variable
     {
-        if (collidingObject.GetComponent<PostIt>())
+        if (collidingObject != null && collidingObject.GetComponent<PostIt>())
         {
             objectInHand = collidingObject;
             objectInHand.transform.SetParent(this.transform);
@@ -65,7 +65,7 @@ public class VRController : MonoBehaviour
     // Releasing object and disabling kinematic functionality so other forces can affect object
     private void ReleaseObject()
     {
-        if (objectInHand.GetComponent<PostIt>())
+        if (objectInHand != null && objectInHand.GetComponent<PostIt>())
         {
             objectInHand.GetComponent<Rigidbody>().isKinematic = false;
             objectInHand.transform.SetParent(null);
