@@ -6,7 +6,6 @@ public class Zona_MapaEmpatia : MonoBehaviour
 {
 
     public Material postItMaterial;
-
     private LinkedList<Collider> assignedPostIts;
 
     void Awake()
@@ -34,7 +33,6 @@ public class Zona_MapaEmpatia : MonoBehaviour
             }
             else
             {
-
             }
         }
     }
@@ -53,6 +51,7 @@ public class Zona_MapaEmpatia : MonoBehaviour
         if (other.GetComponent<PostIt>())
         {
             other.GetComponent<PostIt>().resetMaterial();
+            other.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
             assignedPostIts.Remove(other);
         }
     }

@@ -32,32 +32,12 @@ public class Main : MonoBehaviour
         
     }
 
-    private void readPostIt()
-    {
-
-    }
-
-    [Serializable]
-    public class PostItDB
-    {
-        public string autor { get; set; }
-        public string data { get; set; }
-
-        public PostItDB(){}
-
-        public PostItDB(string autor, string data) {
-            this.data = data;
-            this.autor = autor;
-        }
-    }
-
     void GetOKHandler(Firebase sender, DataSnapshot snapshot)
     {
         //Debug.Log("[OK] Get from key: <" + sender.FullKey + ">");
         //Debug.Log("[OK] Raw Json: " + snapshot.RawJson);
 
         //
-
         Dictionary<string, object> dict = snapshot.Value<Dictionary<string, object>>();
         List<string> keys = snapshot.Keys;
 
@@ -68,14 +48,12 @@ public class Main : MonoBehaviour
             foreach (string key in keys)
             {
                 Dictionary<string, object> newPostIt = dict[key] as Dictionary<string, object>;
-                //Debug.Log(newPostIt["data"]);
 
-                GameObject newPostItObject = Instantiate(prefabPostIt, new Vector3(-1.1f, 0.2f + (y * 0.35f), -0.2f + (z * 0.35f)), Quaternion.identity);
+                GameObject newPostItObject = Instantiate(prefabPostIt, new Vector3(-1.2f, 0.2f + (y * 0.3f), -0.5f + (z * 0.3f)), Quaternion.identity);
                 newPostItObject.GetComponentInChildren<TMPro.TextMeshPro>().text = newPostIt["data"].ToString();
 
                 z++;
-
-                if (z >= 3)
+                if (z >= 4)
                 {
                     y++;
                     z = 0;
