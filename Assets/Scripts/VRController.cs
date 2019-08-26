@@ -8,7 +8,8 @@ public class VRController : MonoBehaviour
 {
 
     public SteamVR_Action_Boolean m_GrabAction = null;
-    public SteamVR_Behaviour_Pose m_Pose = null;
+
+    private SteamVR_Behaviour_Pose m_Pose = null;
 
     void Awake()
     {
