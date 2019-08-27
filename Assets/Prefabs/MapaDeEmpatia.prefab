@@ -112,7 +112,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "\xBFSabes qu\xE9 piensa?"
+  m_text: "\xBFSabes qu\xE9 hace?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fa93fc8c0896ff34ebffeadb941c2e97, type: 2}
   m_sharedMaterial: {fileID: -6441667799431606036, guid: fa93fc8c0896ff34ebffeadb941c2e97,
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 4465326042579322457}
-    characterCount: 18
+    characterCount: 16
     spriteCount: 0
     spaceCount: 2
     wordCount: 3
