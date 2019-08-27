@@ -36,8 +36,8 @@ public class VRController : MonoBehaviour
         }
     }
 
-    public GameObject collidingObject;//To keep track of what objects have rigidbodies
-    public GameObject objectInHand;//To track the object you're holding
+    private GameObject collidingObject;//To keep track of what objects have rigidbodies
+    private GameObject objectInHand;//To track the object you're holding
 
     void OnTriggerEnter(Collider other)//Activate function in trigger zone, checking rigidbodies and ignoring if no rigidbodies 
     {
