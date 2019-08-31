@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR.InteractionSystem;
 
-public class Pointer : MonoBehaviour
+public class VR_Custom_Pointer : MonoBehaviour
 {
 
     public float m_DefaultLenght = 5.0f;

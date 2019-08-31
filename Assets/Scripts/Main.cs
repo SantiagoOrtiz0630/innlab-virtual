@@ -49,7 +49,7 @@ public class Main : MonoBehaviour
             {
                 Dictionary<string, object> newPostIt = dict[key] as Dictionary<string, object>;
 
-                GameObject newPostItObject = Instantiate(prefabPostIt, new Vector3(-1.2f, 0.2f + (y * 0.3f), -0.5f + (z * 0.3f)), Quaternion.identity);
+                GameObject newPostItObject = Instantiate(prefabPostIt, new Vector3(-1.2f, 0.5f + (y * 0.2f), -0.5f + (z * 0.2f)), Quaternion.identity);
                 newPostItObject.GetComponentInChildren<TMPro.TextMeshPro>().text = newPostIt["data"].ToString();
 
                 z++;
