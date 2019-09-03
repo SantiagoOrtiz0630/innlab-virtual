@@ -5,12 +5,11 @@
 //=============================================================================
 
 using UnityEngine;
-using Valve.VR;
 using System.IO;
 using System.Linq;
 
 #if UNITY_2017_2_OR_NEWER
-    using UnityEngine.XR;
+using UnityEngine.XR;
 #else
 using XRSettings = UnityEngine.VR.VRSettings;
 using XRDevice = UnityEngine.VR.VRDevice;
@@ -679,9 +678,9 @@ namespace Valve.VR
                     textureType = ETextureType.OpenGL;
                     break;
 #if !(UNITY_5_4)
-			case UnityEngine.Rendering.GraphicsDeviceType.Vulkan:
-				textureType = ETextureType.Vulkan;
-				break;
+                case UnityEngine.Rendering.GraphicsDeviceType.Vulkan:
+                    textureType = ETextureType.Vulkan;
+                    break;
 #endif
                 default:
                     textureType = ETextureType.DirectX;

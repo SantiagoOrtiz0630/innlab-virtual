@@ -1,8 +1,7 @@
 ﻿//======= Copyright (c) Valve Corporation, All rights reserved. ===============
 
-using UnityEngine;
-using System.Collections;
 using System;
+using UnityEngine;
 
 namespace Valve.VR.InteractionSystem
 {
@@ -424,6 +423,6 @@ namespace Valve.VR.InteractionSystem
             return handAnimatorStateId != -1 && handAnimator != null && handAnimator.isInitialized;
         }
 
-        
+
     }
 }

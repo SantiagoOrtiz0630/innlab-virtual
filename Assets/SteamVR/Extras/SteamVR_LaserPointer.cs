@@ -1,6 +1,5 @@
 ﻿//======= Copyright (c) Valve Corporation, All rights reserved. ===============
 using UnityEngine;
-using System.Collections;
 
 namespace Valve.VR.Extras
 {
@@ -33,10 +32,10 @@ namespace Valve.VR.Extras
                 pose = this.GetComponent<SteamVR_Behaviour_Pose>();
             if (pose == null)
                 Debug.LogError("No SteamVR_Behaviour_Pose component found on this object");
-            
+
             if (interactWithUI == null)
                 Debug.LogError("No ui interaction action has been set on this component.");
-            
+
 
             holder = new GameObject();
             holder.transform.parent = this.transform;
@@ -88,7 +87,7 @@ namespace Valve.VR.Extras
                 PointerOut(this, e);
         }
 
-        
+
         private void Update()
         {
             if (!isActive)

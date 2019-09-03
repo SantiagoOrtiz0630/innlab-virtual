@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-//======= Copyright (c) Valve Corporation, All rights reserved. ===============
-
-using System.Text;
+﻿//======= Copyright (c) Valve Corporation, All rights reserved. ===============
 
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Valve.VR
 {
@@ -58,7 +52,7 @@ namespace Valve.VR
 
         /// <summary>Returns the action set that this action is in.</summary>
         public SteamVR_ActionSet actionSet { get { if (booleanAction != null) return booleanAction.actionSet; else return null; } }
-        
+
 
 
         protected virtual void OnEnable()

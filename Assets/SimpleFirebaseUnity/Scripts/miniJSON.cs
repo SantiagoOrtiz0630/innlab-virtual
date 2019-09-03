@@ -498,7 +498,8 @@ namespace SimpleFirebaseUnity.MiniJSON
                 {
                     SerializeString(new string((char)value, 1));
                 }
-                else {
+                else
+                {
                     SerializeOther(value);
                 }
             }
@@ -584,7 +585,8 @@ namespace SimpleFirebaseUnity.MiniJSON
                             {
                                 builder.Append(c);
                             }
-                            else {
+                            else
+                            {
                                 builder.Append("\\u");
                                 builder.Append(codepoint.ToString("x4"));
                             }
@@ -620,7 +622,8 @@ namespace SimpleFirebaseUnity.MiniJSON
                 {
                     builder.Append(Convert.ToDouble(value).ToString("R"));
                 }
-                else {
+                else
+                {
                     SerializeString(value.ToString());
                 }
             }

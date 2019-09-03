@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PostIt : MonoBehaviour
 {
@@ -23,7 +21,7 @@ public class PostIt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void changeMaterial(Material newMaterial)

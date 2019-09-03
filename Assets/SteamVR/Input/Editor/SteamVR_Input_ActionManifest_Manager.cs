@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using UnityEditor;
 using UnityEngine;
 using Valve.Newtonsoft.Json;
@@ -248,7 +247,7 @@ namespace Valve.VR
                         Debug.LogError("<b>[SteamVR]</b> There was an error deserializing the binding at path: " + currentBindingPath);
                         continue;
                     }
-                    
+
                     SteamVR_Input_BindingFile importingBindingFile = GetBindingFileObject(newDefaultPath.binding_url);
                     if (importingBindingFile == null)
                     {
@@ -330,7 +329,7 @@ namespace Valve.VR
         {
             SteamVR_Input.InitializeFile(true);
             SteamVR_Input_ActionFile currentActionsFile = SteamVR_Input.actionFile;
-            
+
             for (int localizationIndex = 0; localizationIndex < currentActionsFile.localization.Count; localizationIndex++)
             {
                 Dictionary<string, string> dictionary = currentActionsFile.localization[localizationIndex];

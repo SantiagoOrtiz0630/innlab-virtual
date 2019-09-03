@@ -1,20 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Valve.VR;
-using Valve.VR.InteractionSystem;
 
 public class VRController : MonoBehaviour
 {
 
-    private SteamVR_Action_Boolean grabPinchAction = null;
+    //Actions, values of SteamVR
 
+    private SteamVR_Action_Boolean grabPinchAction = null, grabGripAction = null;
     private SteamVR_Behaviour_Pose m_Pose = null;
+
+    public SteamVR_Input_Sources m_HandType;
+    public GameObject pointerObject;
 
     void Awake()
     {
         m_Pose = GetComponent<SteamVR_Behaviour_Pose>();
         grabPinchAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("GrabPinch");
+        grabGripAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("GrabGrip");
     }
 
     // Use this for initialization
@@ -25,16 +27,31 @@ public class VRController : MonoBehaviour
 
     void Update()
     {
+        //for both hands
         if (grabPinchAction.GetStateDown(m_Pose.inputSource))
         {
-            GrabObject();
+            GrabPostIt();
         }
 
         if (grabPinchAction.GetStateUp(m_Pose.inputSource))
         {
-            ReleaseObject();
+            ReleasePostIt();
         }
+
+        //If hand is the right hand, see the SteamVR input UI
+        if (grabGripAction.GetStateDown(m_Pose.inputSource))
+        {
+            SetPointerState(true);
+        }
+
+        if (grabGripAction.GetStateUp(m_Pose.inputSource))
+        {
+            SetPointerState(false);
+        }
+
     }
+
+    //Post It Interactions
 
     private GameObject collidingObject;//To keep track of what objects have rigidbodies
     private GameObject objectInHand;//To track the object you're holding
@@ -53,7 +70,7 @@ public class VRController : MonoBehaviour
         collidingObject = null;
     }
 
-    private void GrabObject() // Picking up object and assigning objectInHand variable
+    private void GrabPostIt() // Picking up object and assigning objectInHand variable
     {
         if (collidingObject != null && collidingObject.GetComponent<PostIt>())
         {
@@ -63,9 +80,9 @@ public class VRController : MonoBehaviour
             objectInHand.GetComponent<PostIt>().setInHand(true);
         }
     }
-       
+
     // Releasing object and disabling kinematic functionality so other forces can affect object
-    private void ReleaseObject()
+    private void ReleasePostIt()
     {
         if (objectInHand != null && objectInHand.GetComponent<PostIt>())
         {
@@ -73,6 +90,14 @@ public class VRController : MonoBehaviour
             objectInHand.transform.SetParent(null);
             objectInHand.GetComponent<PostIt>().setInHand(false);
             objectInHand = null;
+        }
+    }
+
+    private void SetPointerState(bool b)
+    {
+        if (pointerObject != null)
+        {
+            pointerObject.SetActive(b);
         }
     }
 

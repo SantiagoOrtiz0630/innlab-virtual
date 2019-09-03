@@ -28,12 +28,12 @@ Last update: 2018-05-20  (by Dikra)
 
 */
 
-using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 using System.Net;
+using System.Text;
+using UnityEngine;
 
 namespace SimpleFirebaseUnity
 {
@@ -625,7 +625,7 @@ namespace SimpleFirebaseUnity
         /// <param name="query">REST call parameters wrapped in FirebaseQuery class</param>
         /// <returns></returns>
         public void UpdateValue(Dictionary<string, object> val, FirebaseParam query)
-        {         
+        {
             root.StartCoroutine(JsonSerializeRoutine(val, query, UpdateValue));
         }
 
@@ -690,7 +690,7 @@ namespace SimpleFirebaseUnity
         {
             try
             {
-                if(Credential != "")
+                if (Credential != "")
                 {
                     query = new FirebaseParam(query).Auth(Credential);
                 }
@@ -919,7 +919,7 @@ namespace SimpleFirebaseUnity
             temp.Child(".priority").SetValue(priority, query);
         }
 
-        
+
         /*** TIME STAMP ***/
 
         /// <summary>
@@ -1107,7 +1107,8 @@ namespace SimpleFirebaseUnity
                     {
                         errMessage = "No internet connection or crossdomain.xml policy problem";
                     }
-                    else {
+                    else
+                    {
 
                         // Parse error message
 
@@ -1158,9 +1159,9 @@ namespace SimpleFirebaseUnity
             }
         }
 
-#endregion
+        #endregion
 
-#region STATIC FUNCTIONS
+        #region STATIC FUNCTIONS
 
         /// <summary>
         /// Creates new Firebase pointer at a valid Firebase url
@@ -1172,7 +1173,7 @@ namespace SimpleFirebaseUnity
         {
             if (host.StartsWith("https://"))
                 host = host.Substring("https://".Length);
-            
+
             return new FirebaseRoot(host, credential);
         }
 
@@ -1190,7 +1191,7 @@ namespace SimpleFirebaseUnity
 
 
 
-#endregion
+        #endregion
 
     }
 }

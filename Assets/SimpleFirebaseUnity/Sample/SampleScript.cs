@@ -1,13 +1,11 @@
 ﻿// Last update: 2018-05-20  (by Dikra)
 
-using UnityEngine;
-
 using SimpleFirebaseUnity;
 using SimpleFirebaseUnity.MiniJSON;
-
-using System.Collections.Generic;
-using System.Collections;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 
 public class SampleScript : MonoBehaviour
@@ -137,7 +135,7 @@ public class SampleScript : MonoBehaviour
     {
         // README
         DebugLog("This plugin simply wraps Firebase's RealTime Database REST API.\nPlease read here for better understanding of the API: https://firebase.google.com/docs/reference/rest/database/\n");
-              
+
         // Inits Firebase using Firebase Secret Key as Auth
         // The current provided implementation not yet including Auth Token Generation
         // If you're using this sample Firebase End, 
@@ -183,7 +181,7 @@ public class SampleScript : MonoBehaviour
 
         // Create a FirebaseQueue
         FirebaseQueue firebaseQueue = new FirebaseQueue(true, 3, 1f); // if _skipOnRequestError is set to false, queue will stuck on request Get.LimitToLast(-1).
-                                                                    
+
 
         // Test #1: Test all firebase commands, using FirebaseQueueManager
         // The requests should be running in order 
@@ -227,7 +225,7 @@ public class SampleScript : MonoBehaviour
         // We need to clear the queue as the queue is left with one error command (the one we deliberately inserted last time).
         // When the queue stuck with an error command at its head, the next (or the newly added command) will never be processed.
         firebaseQueue.ForceClearQueue();
-        yield return null;      
+        yield return null;
 
         // Test #3: Delete the frb_child and broadcasts
         firebaseQueue.AddQueueGet(firebase);

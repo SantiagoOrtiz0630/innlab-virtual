@@ -6,7 +6,6 @@
 
 using UnityEngine;
 using UnityEngine.Rendering;
-using Valve.VR;
 
 namespace Valve.VR
 {
@@ -173,7 +172,7 @@ namespace Valve.VR
                 target = steamVR_Camera.head;
             }
 
-            
+
 
             var root = transform.parent;
             var origin = target.parent;

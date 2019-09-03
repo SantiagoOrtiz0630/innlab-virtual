@@ -1,14 +1,13 @@
 ﻿//======= Copyright (c) Valve Corporation, All rights reserved. ===============
 
 using UnityEngine;
-using System.Collections;
 
 namespace Valve.VR.InteractionSystem.Sample
 {
     public class FloppyHand : MonoBehaviour
     {
         protected float fingerFlexAngle = 140;
-        
+
         public SteamVR_Action_Single squeezyAction = SteamVR_Input.GetAction<SteamVR_Action_Single>("Squeeze");
         public SteamVR_Input_Sources inputSource;
 

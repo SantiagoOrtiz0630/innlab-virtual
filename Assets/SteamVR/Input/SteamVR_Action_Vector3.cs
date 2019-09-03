@@ -1,11 +1,8 @@
 ﻿//======= Copyright (c) Valve Corporation, All rights reserved. ===============
 
-using UnityEngine;
-using System.Collections;
 using System;
-using Valve.VR;
 using System.Runtime.InteropServices;
-using System.Collections.Generic;
+using UnityEngine;
 
 namespace Valve.VR
 {
@@ -180,7 +177,7 @@ namespace Valve.VR
             InitAfterDeserialize();
         }
     }
-    
+
     public class SteamVR_Action_Vector3_Source_Map : SteamVR_Action_In_Source_Map<SteamVR_Action_Vector3_Source>
     {
     }

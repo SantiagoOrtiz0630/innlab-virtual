@@ -4,8 +4,6 @@
 //
 //=============================================================================
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Valve.VR.InteractionSystem
@@ -41,13 +39,13 @@ namespace Valve.VR.InteractionSystem
                     return SteamVR_Input_Sources.Any;
             }
         }
-        
+
         private void Start()
         {
             initialScale = transform.localScale;
             interactable = GetComponent<Interactable>();
         }
-        
+
         private void Update()
         {
             if (interactable.attachedToHand)

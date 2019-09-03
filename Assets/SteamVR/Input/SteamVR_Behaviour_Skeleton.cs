@@ -1,10 +1,7 @@
 ﻿//======= Copyright (c) Valve Corporation, All rights reserved. ===============
 
-using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
-using Valve.VR;
 
 namespace Valve.VR
 {
@@ -318,7 +315,7 @@ namespace Valve.VR
         {
             CheckSkeletonAction();
             SteamVR_Input.onSkeletonsUpdated += SteamVR_Input_OnSkeletonsUpdated;
-            
+
             if (skeletonAction != null)
             {
                 skeletonAction.onDeviceConnectedChanged += OnDeviceConnectedChanged;
@@ -471,7 +468,7 @@ namespace Valve.VR
             if (this.gameObject.activeInHierarchy)
                 blendRoutine = StartCoroutine(DoBlendRoutine(blendToAmount, overTime));
         }
-        
+
 
         protected IEnumerator DoBlendRoutine(float blendToAmount, float overTime)
         {
@@ -668,7 +665,7 @@ namespace Valve.VR
                 {
                     if (bones[boneIndex] == null)
                         continue;
-                    
+
                     if (blendPoser != null)
                     {
                         SteamVR_Skeleton_Pose_Hand mainPose = blendPoser.skeletonMainPose.GetHand(inputSource);
@@ -813,7 +810,7 @@ namespace Valve.VR
                 //fallback to getting skeleton pose from skeletonPoser
                 if (fallbackPoser != null)
                 {
-                    fallbackPoser.GetBlendedPose(skeletonAction, inputSource).boneRotations.CopyTo(rotationBuffer,0);
+                    fallbackPoser.GetBlendedPose(skeletonAction, inputSource).boneRotations.CopyTo(rotationBuffer, 0);
                 }
                 else
                 {

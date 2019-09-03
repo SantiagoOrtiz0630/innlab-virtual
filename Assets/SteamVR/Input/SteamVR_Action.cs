@@ -9,12 +9,9 @@
 //     * Action Source: This is a collection of cached data retrieved by calls to the underlying SteamVR Input system. 
 //          Each Action Source has an inputSource that it is associated with.
 
-using UnityEngine;
-using System.Collections;
 using System;
-using Valve.VR;
-using System.Runtime.InteropServices;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Valve.VR
 {
@@ -75,7 +72,7 @@ namespace Valve.VR
 
         /// <summary><strong>[Shortcut to: SteamVR_Input_Sources.Any]</strong> Returns true if the action is bound and the actionset is active</summary>
         public override bool active { get { return sourceMap[SteamVR_Input_Sources.Any].active; } }
-        
+
         /// <summary><strong>[Shortcut to: SteamVR_Input_Sources.Any]</strong> Returns true if the action was bound and the ActionSet was active during the previous update</summary>
         public override bool lastActive { get { return sourceMap[SteamVR_Input_Sources.Any].lastActive; } }
 
@@ -138,7 +135,7 @@ namespace Valve.VR
                     this.sourceMap = null;
                 }
                 else
-                { 
+                {
                     this.actionPath = existingAction.fullPath;
                     this.sourceMap = (SourceMap)existingAction.GetSourceMap();
 
@@ -364,14 +361,14 @@ namespace Valve.VR
         /// 
         /// </summary>
         public abstract bool lastActiveBinding { get; }
-        
+
         /// <summary>
         /// Prepares the action to be initialized. Creating dictionaries, finding the right existing action, etc.
         /// </summary>
         public abstract void PreInitialize(string newActionPath);
 
         protected abstract void CreateUninitialized(string newActionPath, bool caseSensitive);
-        
+
         protected abstract void CreateUninitialized(string newActionSet, SteamVR_ActionDirections direction, string newAction, bool caseSensitive);
 
         /// <summary>
@@ -470,7 +467,7 @@ namespace Valve.VR
                     return true;
                 if (this.GetSourceMap() == null)
                     return true;
-                
+
                 return false;
             }
 
@@ -556,7 +553,7 @@ namespace Valve.VR
 
         public void HideOrigins()
         {
-            OpenVR.Input.ShowActionOrigins(0,0);
+            OpenVR.Input.ShowActionOrigins(0, 0);
         }
     }
 
@@ -697,20 +694,20 @@ namespace Valve.VR
 
         /// <summary>The ActionSet this action is contained within</summary>
         public SteamVR_ActionSet actionSet { get { return action.actionSet; } }
-        
+
         /// <summary>The action direction of this action (in for input - most actions, out for output - haptics)</summary>
         public SteamVR_ActionDirections direction { get { return action.direction; } }
-        
+
         /// <summary>The input source that this instance corresponds to. ex. LeftHand, RightHand</summary>
         public SteamVR_Input_Sources inputSource { get; protected set; }
-        
+
         /// <summary>Returns true if the action set this is contained in is active for this input source (or Any)</summary>
         public bool setActive { get { return actionSet.IsActive(inputSource); } }
 
-        
+
         /// <summary>Returns true if this action is bound and the ActionSet is active</summary>
         public abstract bool active { get; }
-        
+
         /// <summary>Returns true if the action is bound</summary>
         public abstract bool activeBinding { get; }
 
@@ -752,7 +749,7 @@ namespace Valve.VR
         /// <summary>Returns the active state of the action for the specified Input Source</summary>
         /// <param name="inputSource">The input source to check</param>
         bool GetActive(SteamVR_Input_Sources inputSource);
-        
+
         /// <summary>Returns the name of the action without the action set or direction</summary>
         string GetShortName();
     }
@@ -762,13 +759,13 @@ namespace Valve.VR
     {
         /// <summary>Returns true if this action is bound and the ActionSet is active</summary>
         bool active { get; }
-        
+
         /// <summary>Returns true if the action is bound</summary>
         bool activeBinding { get; }
 
         /// <summary>Returns true if the action was bound and the ActionSet was active during the previous update</summary>
         bool lastActive { get; }
-        
+
         /// <summary>Returns true if the action was bound last update</summary>
         bool lastActiveBinding { get; }
 

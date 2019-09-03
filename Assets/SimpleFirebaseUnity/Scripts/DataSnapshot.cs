@@ -57,7 +57,7 @@ namespace SimpleFirebaseUnity
         /// <param name="json">Json string</param>
         public DataSnapshot(string _json = "")
         {
-            object obj = (_json != null && _json.Length > 0)?Json.Deserialize(_json):null;
+            object obj = (_json != null && _json.Length > 0) ? Json.Deserialize(_json) : null;
 
             if (obj is Dictionary<string, object>)
                 val_dict = obj as Dictionary<string, object>;
@@ -65,7 +65,7 @@ namespace SimpleFirebaseUnity
                 val_obj = obj;
 
             keys = null;
-            json = (_json == null)?"":_json;
+            json = (_json == null) ? "" : _json;
         }
 
         /// <summary>
@@ -131,7 +131,8 @@ namespace SimpleFirebaseUnity
                 object obj = val_dict;
                 return (T)obj;
             }
-            catch {
+            catch
+            {
                 return default(T);
             }
         }

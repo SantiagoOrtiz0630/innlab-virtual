@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5431549998690580997}
   - component: {fileID: 5431549998690581019}
   - component: {fileID: 5431549998690581018}
+  - component: {fileID: 1099478520031023362}
   m_Layer: 0
   m_Name: Dot
   m_TagString: Untagged
@@ -77,6 +78,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1099478520031023362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5431549998690580996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a5ed89041557f54e9b6360a26d8cc48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5431549998887455905
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,7 +108,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5431549998887455910
 Transform:
   m_ObjectHideFlags: 0
@@ -123,9 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 493e13b3e89166049ad7c6962a05ddf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DefaultLenght: 10
   m_Dot: {fileID: 5431549998690580996}
-  m_InputModule: {fileID: 0}
 --- !u!20 &5431549998887455908
 Camera:
   m_ObjectHideFlags: 0
@@ -239,7 +250,7 @@ LineRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 0}
+      key1: {r: 1, g: 1, b: 1, a: 0.039215688}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}

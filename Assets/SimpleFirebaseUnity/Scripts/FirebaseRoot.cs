@@ -29,10 +29,10 @@ Last update: 2018-05-20  (by Dikra)
 
 */
 
-using System.Security.Cryptography.X509Certificates;
-using System.Net.Security;
-using System.Net;
 using System.Collections;
+using System.Net;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
 
 namespace SimpleFirebaseUnity
 {
@@ -74,7 +74,7 @@ namespace SimpleFirebaseUnity
         /// </summary>
         public override string RulesEndpoint
         {
-            get 
+            get
             {
                 return "https://" + root.Host + "/.settings/rules.json";
             }
@@ -85,7 +85,7 @@ namespace SimpleFirebaseUnity
         /// </summary>
         public FirebaseRoot Copy()
         {
-            return new FirebaseRoot (host, cred);
+            return new FirebaseRoot(host, cred);
         }
 
         /// <summary>
@@ -128,7 +128,7 @@ namespace SimpleFirebaseUnity
         /// <param name="routine">Routine.</param>
         public void StartCoroutine(IEnumerator routine)
         {
-            FirebaseManager.Instance.StartCoroutine (routine);
+            FirebaseManager.Instance.StartCoroutine(routine);
         }
 
         /// <summary>
@@ -137,7 +137,7 @@ namespace SimpleFirebaseUnity
         /// <param name="routine">Routine.</param>
         public void StopCoroutine(IEnumerator routine)
         {
-            FirebaseManager.Instance.StopCoroutine (routine);
+            FirebaseManager.Instance.StopCoroutine(routine);
         }
     }
 }

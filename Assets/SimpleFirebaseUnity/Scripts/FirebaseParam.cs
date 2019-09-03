@@ -34,26 +34,26 @@ using UnityEngine;
 
 namespace SimpleFirebaseUnity
 {
-	public struct FirebaseParam
-	{
+    public struct FirebaseParam
+    {
         public enum HttpMethodName
         {
             GET, POST, PUT, PATCH, DELETE
         }
 
         Dictionary<string, string> header;
-		string param;
+        string param;
 
-		/// <summary>
-		/// Created parameter for REST API call
-		/// </summary>
-		public string Parameter
-		{
-			get
-			{
-				return param;
-			}
-		}
+        /// <summary>
+        /// Created parameter for REST API call
+        /// </summary>
+        public string Parameter
+        {
+            get
+            {
+                return param;
+            }
+        }
 
         /// <summary>
 		/// Created HttpHeader for REST API call
@@ -77,13 +77,13 @@ namespace SimpleFirebaseUnity
             }
         }
 
-		/// <summary>
-		/// Create new FirebaseQuery
-		/// </summary>
-		/// <param name="_param">REST call parameters on a string. Example: &quot;orderBy=&#92;"$key&#92;"&quot;print=pretty&quot;auth=secret123"></param>
-		public FirebaseParam(string _param = "")
-		{
-			param = _param;
+        /// <summary>
+        /// Create new FirebaseQuery
+        /// </summary>
+        /// <param name="_param">REST call parameters on a string. Example: &quot;orderBy=&#92;"$key&#92;"&quot;print=pretty&quot;auth=secret123"></param>
+        public FirebaseParam(string _param = "")
+        {
+            param = _param;
             header = new Dictionary<string, string>();
         }
 
@@ -97,17 +97,18 @@ namespace SimpleFirebaseUnity
             param = _param;
             header = _header;
         }
-        
+
         /// <summary>
-		/// Create new FirebaseQuery
-		/// </summary>
-		/// <param name="copy">Firebase parameter to copy.</param>
-		public FirebaseParam(FirebaseParam copy)
+        /// Create new FirebaseQuery
+        /// </summary>
+        /// <param name="copy">Firebase parameter to copy.</param>
+        public FirebaseParam(FirebaseParam copy)
         {
             param = copy.Parameter;
             header = new Dictionary<string, string>();
 
-            foreach (var kv in header){
+            foreach (var kv in header)
+            {
                 header.Add(kv.Key, kv.Value);
             }
         }
@@ -116,222 +117,222 @@ namespace SimpleFirebaseUnity
         /// For details see https://firebase.google.com/docs/reference/rest/database/
         /// </summary>
         public FirebaseParam Add(string parameter)
-		{
-			if (param != null && param.Length > 0)
-				param += "&";
-			param += parameter;
+        {
+            if (param != null && param.Length > 0)
+                param += "&";
+            param += parameter;
 
-			return this;
-		}
+            return this;
+        }
 
-		/// <summary>
-		/// For details see https://firebase.google.com/docs/reference/rest/database/ . Set quoted parameter if necessary
-		/// </summary>
-		public FirebaseParam Add(string name, string value, bool quoted = true)
-		{
-			return (quoted) ? Add(name + "=\"" + value + "\"") : Add(name + "=" + value);
-		}
+        /// <summary>
+        /// For details see https://firebase.google.com/docs/reference/rest/database/ . Set quoted parameter if necessary
+        /// </summary>
+        public FirebaseParam Add(string name, string value, bool quoted = true)
+        {
+            return (quoted) ? Add(name + "=\"" + value + "\"") : Add(name + "=" + value);
+        }
 
-		/// <summary>
-		/// For details see https://firebase.google.com/docs/reference/rest/database/
-		/// </summary>
-		public FirebaseParam Add(string name, int value)
-		{
-			return Add(name + "=" + value);
-		}
+        /// <summary>
+        /// For details see https://firebase.google.com/docs/reference/rest/database/
+        /// </summary>
+        public FirebaseParam Add(string name, int value)
+        {
+            return Add(name + "=" + value);
+        }
 
-		/// <summary>
-		/// For details see https://firebase.google.com/docs/reference/rest/database/
-		/// </summary>
-		public FirebaseParam Add(string name, float value)
-		{
-			return Add(name + "=" + value);
-		}
+        /// <summary>
+        /// For details see https://firebase.google.com/docs/reference/rest/database/
+        /// </summary>
+        public FirebaseParam Add(string name, float value)
+        {
+            return Add(name + "=" + value);
+        }
 
-		/// <summary>
-		/// For details see https://firebase.google.com/docs/reference/rest/database/
-		/// </summary>
-		public FirebaseParam Add(string name, bool value)
-		{
-			return Add(name + "=" + value);
-		}
+        /// <summary>
+        /// For details see https://firebase.google.com/docs/reference/rest/database/
+        /// </summary>
+        public FirebaseParam Add(string name, bool value)
+        {
+            return Add(name + "=" + value);
+        }
 
 
         /// <summary>
         /// For details see https://firebase.google.com/docs/reference/rest/database/
         /// </summary>
         public FirebaseParam OrderByChild(string key)
-		{
-			return Add("orderBy", key);
-		}
+        {
+            return Add("orderBy", key);
+        }
 
-		/// <summary>
-		/// For details see https://firebase.google.com/docs/reference/rest/database/
-		/// </summary>
-		public FirebaseParam OrderByKey()
-		{
-			return Add("orderBy", "$key");
-		}
+        /// <summary>
+        /// For details see https://firebase.google.com/docs/reference/rest/database/
+        /// </summary>
+        public FirebaseParam OrderByKey()
+        {
+            return Add("orderBy", "$key");
+        }
 
-		/// <summary>
-		/// For details see https://firebase.google.com/docs/reference/rest/database/
-		/// </summary>
-		public FirebaseParam OrderByValue()
-		{
-			return Add("orderBy", "$value");
-		}
+        /// <summary>
+        /// For details see https://firebase.google.com/docs/reference/rest/database/
+        /// </summary>
+        public FirebaseParam OrderByValue()
+        {
+            return Add("orderBy", "$value");
+        }
 
-		/// <summary>
-		/// For details see https://firebase.google.com/docs/reference/rest/database/
-		/// </summary>
-		public FirebaseParam OrderByPriority()
-		{
-			return Add("orderBy", "$priority");
-		}
+        /// <summary>
+        /// For details see https://firebase.google.com/docs/reference/rest/database/
+        /// </summary>
+        public FirebaseParam OrderByPriority()
+        {
+            return Add("orderBy", "$priority");
+        }
 
-		/// <summary>
-		/// For details see https://firebase.google.com/docs/reference/rest/database/
-		/// </summary>
-		public FirebaseParam LimitToFirst(int lim)
-		{
-			return Add("limitToFirst", lim);
-		}
+        /// <summary>
+        /// For details see https://firebase.google.com/docs/reference/rest/database/
+        /// </summary>
+        public FirebaseParam LimitToFirst(int lim)
+        {
+            return Add("limitToFirst", lim);
+        }
 
-		/// <summary>
-		/// For details see https://firebase.google.com/docs/reference/rest/database/
-		/// </summary>
-		public FirebaseParam LimitToLast(int lim)
-		{
-			return Add("limitToLast", lim);
-		}
+        /// <summary>
+        /// For details see https://firebase.google.com/docs/reference/rest/database/
+        /// </summary>
+        public FirebaseParam LimitToLast(int lim)
+        {
+            return Add("limitToLast", lim);
+        }
 
-		/// <summary>
-		/// For details see https://firebase.google.com/docs/reference/rest/database/
-		/// </summary>
-		public FirebaseParam StartAt(string start)
-		{
-			return Add("startAt", start);
-		}
+        /// <summary>
+        /// For details see https://firebase.google.com/docs/reference/rest/database/
+        /// </summary>
+        public FirebaseParam StartAt(string start)
+        {
+            return Add("startAt", start);
+        }
 
-		/// <summary>
-		/// For details see https://firebase.google.com/docs/reference/rest/database/
-		/// </summary>
-		public FirebaseParam StartAt(int start)
-		{
-			return Add("startAt", start);
-		}
+        /// <summary>
+        /// For details see https://firebase.google.com/docs/reference/rest/database/
+        /// </summary>
+        public FirebaseParam StartAt(int start)
+        {
+            return Add("startAt", start);
+        }
 
-		/// <summary>
-		/// For details see https://firebase.google.com/docs/reference/rest/database/
-		/// </summary>
-		public FirebaseParam StartAt(bool start)
-		{
-			return Add("startAt", start);
-		}
+        /// <summary>
+        /// For details see https://firebase.google.com/docs/reference/rest/database/
+        /// </summary>
+        public FirebaseParam StartAt(bool start)
+        {
+            return Add("startAt", start);
+        }
 
-		/// <summary>
-		/// For details see https://firebase.google.com/docs/reference/rest/database/
-		/// </summary>
-		public FirebaseParam StartAt(float start)
-		{
-			return Add("startAt", start);
-		}
+        /// <summary>
+        /// For details see https://firebase.google.com/docs/reference/rest/database/
+        /// </summary>
+        public FirebaseParam StartAt(float start)
+        {
+            return Add("startAt", start);
+        }
 
-		/// <summary>
-		/// For details see https://firebase.google.com/docs/reference/rest/database/
-		/// </summary>
-		public FirebaseParam EndAt(string end)
-		{
-			return Add("endAt", end);
-		}
+        /// <summary>
+        /// For details see https://firebase.google.com/docs/reference/rest/database/
+        /// </summary>
+        public FirebaseParam EndAt(string end)
+        {
+            return Add("endAt", end);
+        }
 
-		/// <summary>
-		/// For details see https://firebase.google.com/docs/reference/rest/database/
-		/// </summary>
-		public FirebaseParam EndAt(int end)
-		{
-			return Add("endAt", end);
-		}
+        /// <summary>
+        /// For details see https://firebase.google.com/docs/reference/rest/database/
+        /// </summary>
+        public FirebaseParam EndAt(int end)
+        {
+            return Add("endAt", end);
+        }
 
-		/// <summary>
-		/// For details see https://firebase.google.com/docs/reference/rest/database/
-		/// </summary>
-		public FirebaseParam EndAt(bool end)
-		{
-			return Add("endAt", end);
-		}
+        /// <summary>
+        /// For details see https://firebase.google.com/docs/reference/rest/database/
+        /// </summary>
+        public FirebaseParam EndAt(bool end)
+        {
+            return Add("endAt", end);
+        }
 
-		/// <summary>
-		/// For details see https://firebase.google.com/docs/reference/rest/database/
-		/// </summary>
-		public FirebaseParam EndAt(float end)
-		{
-			return Add("endAt", end);
-		}
+        /// <summary>
+        /// For details see https://firebase.google.com/docs/reference/rest/database/
+        /// </summary>
+        public FirebaseParam EndAt(float end)
+        {
+            return Add("endAt", end);
+        }
 
-		/// <summary>
-		/// For details see https://firebase.google.com/docs/reference/rest/database/
-		/// </summary>
-		public FirebaseParam EqualTo(string at)
-		{
-			return Add("equalTo", at);
-		}
+        /// <summary>
+        /// For details see https://firebase.google.com/docs/reference/rest/database/
+        /// </summary>
+        public FirebaseParam EqualTo(string at)
+        {
+            return Add("equalTo", at);
+        }
 
-		/// <summary>
-		/// For details see https://firebase.google.com/docs/reference/rest/database/
-		/// </summary>
-		public FirebaseParam EqualTo(int at)
-		{
-			return Add("equalTo", at);
-		}
+        /// <summary>
+        /// For details see https://firebase.google.com/docs/reference/rest/database/
+        /// </summary>
+        public FirebaseParam EqualTo(int at)
+        {
+            return Add("equalTo", at);
+        }
 
-		/// <summary>
-		/// For details see https://firebase.google.com/docs/reference/rest/database/
-		/// </summary>
-		public FirebaseParam EqualTo(bool at)
-		{
-			return Add("equalTo", at);
-		}
+        /// <summary>
+        /// For details see https://firebase.google.com/docs/reference/rest/database/
+        /// </summary>
+        public FirebaseParam EqualTo(bool at)
+        {
+            return Add("equalTo", at);
+        }
 
-		/// <summary>
-		/// For details see https://firebase.google.com/docs/reference/rest/database/
-		/// </summary>
-		public FirebaseParam EqualTo(float at)
-		{
-			return Add("equalTo", at);
-		}
+        /// <summary>
+        /// For details see https://firebase.google.com/docs/reference/rest/database/
+        /// </summary>
+        public FirebaseParam EqualTo(float at)
+        {
+            return Add("equalTo", at);
+        }
 
-		/// <summary>
-		/// For details see https://firebase.google.com/docs/reference/rest/database/
-		/// </summary>
-		public FirebaseParam PrintPretty()
-		{
-			return Add("print=pretty");
-		}
+        /// <summary>
+        /// For details see https://firebase.google.com/docs/reference/rest/database/
+        /// </summary>
+        public FirebaseParam PrintPretty()
+        {
+            return Add("print=pretty");
+        }
 
-		/// <summary>
-		/// For details see https://firebase.google.com/docs/reference/rest/database/
-		/// </summary>
-		public FirebaseParam PrintSilent()
-		{
-			return Add("print=silent");
-		}
+        /// <summary>
+        /// For details see https://firebase.google.com/docs/reference/rest/database/
+        /// </summary>
+        public FirebaseParam PrintSilent()
+        {
+            return Add("print=silent");
+        }
 
-		/// <summary>
-		/// For details see https://firebase.google.com/docs/reference/rest/database/
-		/// </summary>
-		public FirebaseParam Shallow()
-		{
-			return Add("shallow=true");
-		}
+        /// <summary>
+        /// For details see https://firebase.google.com/docs/reference/rest/database/
+        /// </summary>
+        public FirebaseParam Shallow()
+        {
+            return Add("shallow=true");
+        }
 
-		/// <summary>
-		/// For details see https://firebase.google.com/docs/reference/rest/database/
-		/// </summary>
-		public FirebaseParam Auth(string cred)
-		{
-			return Add("auth=" + cred);
-		}
+        /// <summary>
+        /// For details see https://firebase.google.com/docs/reference/rest/database/
+        /// </summary>
+        public FirebaseParam Auth(string cred)
+        {
+            return Add("auth=" + cred);
+        }
 
         /// <summary>
 		/// For details see https://firebase.google.com/docs/reference/rest/database/
@@ -352,16 +353,16 @@ namespace SimpleFirebaseUnity
                 header.Add(name, value);
 
             return this;
-        }      
+        }
 
         /// <summary>
         /// WARNING: This plugin's Firebase request implementations are using X-HTTP-Method-Override by default.
         /// Only use this method to create a custom request or re-override Http Method at your own risk.
-		/// For details see https://firebase.google.com/docs/reference/rest/database/
-		/// </summary>
-		public FirebaseParam HttpMethodOverride(string methodOverride)
+        /// For details see https://firebase.google.com/docs/reference/rest/database/
+        /// </summary>
+        public FirebaseParam HttpMethodOverride(string methodOverride)
         {
-            return AddHttpHeader("X-HTTP-Method-Override" , methodOverride);
+            return AddHttpHeader("X-HTTP-Method-Override", methodOverride);
         }
 
         /// <summary>
@@ -371,7 +372,7 @@ namespace SimpleFirebaseUnity
 		/// </summary>
         public FirebaseParam HttpMethodOverride(HttpMethodName methodName)
         {
-            return AddHttpHeader("X-HTTP-Method-Override" , methodName.ToString());
+            return AddHttpHeader("X-HTTP-Method-Override", methodName.ToString());
         }
 
         /// <summary>
@@ -402,11 +403,11 @@ namespace SimpleFirebaseUnity
         /// Empty paramete or \"\"
         /// </summary>
         public static FirebaseParam Empty
-		{
-			get
-			{
-				return new FirebaseParam();
-			}
-		}
-	}
+        {
+            get
+            {
+                return new FirebaseParam();
+            }
+        }
+    }
 }

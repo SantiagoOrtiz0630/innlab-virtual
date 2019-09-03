@@ -1,11 +1,9 @@
 ﻿//======= Copyright (c) Valve Corporation, All rights reserved. ===============
 
-using UnityEngine;
-using System.Collections;
 using System;
-using Valve.VR;
-using System.Runtime.InteropServices;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
+using UnityEngine;
 
 namespace Valve.VR
 {
@@ -13,8 +11,8 @@ namespace Valve.VR
     /// <summary>
     /// In actions are all input type actions. Boolean, Single, Vector2, Vector3, Skeleton, and Pose. 
     /// </summary>
-    public abstract class SteamVR_Action_In<SourceMap, SourceElement> : SteamVR_Action<SourceMap, SourceElement>, ISteamVR_Action_In 
-        where SourceMap : SteamVR_Action_In_Source_Map<SourceElement>, new() 
+    public abstract class SteamVR_Action_In<SourceMap, SourceElement> : SteamVR_Action<SourceMap, SourceElement>, ISteamVR_Action_In
+        where SourceMap : SteamVR_Action_In_Source_Map<SourceElement>, new()
         where SourceElement : SteamVR_Action_In_Source, new()
     {
         /// <summary><strong>[Shortcut to: SteamVR_Input_Sources.Any]</strong> Returns true if the action has been changed since the previous update</summary>
@@ -226,7 +224,7 @@ namespace Valve.VR
         /// Should only be used if you've set SteamVR_Action.startUpdatingSourceOnAccess to false.
         /// </summary>
         public bool isUpdating { get; set; }
-        
+
         /// <summary>The time the action was updated (Time.realtimeSinceStartup)</summary>
         public float updateTime { get; protected set; }
 
@@ -243,7 +241,7 @@ namespace Valve.VR
         public abstract bool lastChanged { get; protected set; }
 
         /// <summary>The input source that triggered the action to be updated</summary>
-        public SteamVR_Input_Sources activeDevice { get { UpdateOriginTrackedDeviceInfo();  return SteamVR_Input_Source.GetSource(inputOriginInfo.devicePath); } }
+        public SteamVR_Input_Sources activeDevice { get { UpdateOriginTrackedDeviceInfo(); return SteamVR_Input_Source.GetSource(inputOriginInfo.devicePath); } }
 
         /// <summary>The device index (used by Render Models) used by the device that triggered the action to be updated</summary>
         public uint trackedDeviceIndex { get { UpdateOriginTrackedDeviceInfo(); return inputOriginInfo.trackedDeviceIndex; } }

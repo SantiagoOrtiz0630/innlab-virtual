@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VR_InputModuleEvent : MonoBehaviour
+public class Pointer_Dot : MonoBehaviour
 {
+
     // Start is called before the first frame update
     void Start()
     {
-        
+    }
+
+    void Awake()
+    {
     }
 
     // Update is called once per frame
@@ -15,4 +19,5 @@ public class VR_InputModuleEvent : MonoBehaviour
     {
         
     }
+
 }

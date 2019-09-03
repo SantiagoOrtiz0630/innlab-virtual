@@ -1,7 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using Valve.VR;
-using Valve.VR.InteractionSystem;
 
 namespace Valve.VR.InteractionSystem.Sample
 {
@@ -9,7 +6,7 @@ namespace Valve.VR.InteractionSystem.Sample
     {
         public Transform Joystick;
         public float joyMove = 0.1f;
-        
+
         public SteamVR_Action_Vector2 moveAction = SteamVR_Input.GetAction<SteamVR_Action_Vector2>("platformer", "Move");
         public SteamVR_Action_Boolean jumpAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("platformer", "Jump");
 

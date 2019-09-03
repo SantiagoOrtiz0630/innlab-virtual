@@ -184,7 +184,7 @@ namespace SimpleFirebaseUnity
         {
             if (node == null)
                 return;
-            
+
             CommandLinkedList temp = node.next;
             ClearQueueTopDown(temp);
             node.next = null;
@@ -294,7 +294,7 @@ namespace SimpleFirebaseUnity
 
             OnQueueCompleted = _OnQueueCompleted;
             OnQueueInterrupted = _OnQueueInterrupted;
-        }      
+        }
 
         /// <summary>
         /// Start processing the queue until all commands completed, or, an error occured and number of allowed retries is over the limit.
@@ -360,7 +360,7 @@ namespace SimpleFirebaseUnity
             temp.OnGetFailed += OnFailed;
             AddQueue(temp, FirebaseCommand.Get, param.Parameter);
         }
-        
+
         /// <summary>
         /// Adds Firebase Set request to queue.
         /// </summary>
@@ -445,7 +445,7 @@ namespace SimpleFirebaseUnity
         {
             AddQueueSet(firebase, val, isJson, param.Parameter);
         }
-       
+
         /// <summary>
         /// Adds Firebase Update request to queue.
         /// </summary>
@@ -530,7 +530,8 @@ namespace SimpleFirebaseUnity
         /// <param name="val">Value.</param>
         /// <param name="priority">Priority.</param>
         /// <param name="param">Parameter.</param>
-        public void AddQueuePush(Firebase firebase, object val, float priority, string param = ""){
+        public void AddQueuePush(Firebase firebase, object val, float priority, string param = "")
+        {
             Dictionary<string, object> tempDict = new Dictionary<string, object>();
             tempDict.Add(".value", val);
             tempDict.Add(".priority", priority);
@@ -667,7 +668,7 @@ namespace SimpleFirebaseUnity
             ClearQueueTopDown(head);
             head = null;
             tail = null;
-            System.GC.Collect();         
+            System.GC.Collect();
         }
 
 

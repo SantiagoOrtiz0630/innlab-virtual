@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class MoveControl : MonoBehaviour
 {
 
-    #if !UNITY_EDITOR && (UNITY_ANDROID || UNITY_IPHONE)
+#if !UNITY_EDITOR && (UNITY_ANDROID || UNITY_IPHONE)
     const float speed = 3f;
 #else
     const float speed = 10f;
@@ -14,7 +13,7 @@ public class MoveControl : MonoBehaviour
     void Update()
     {
         float h, v;
-        
+
 #if !UNITY_EDITOR && (UNITY_ANDROID || UNITY_IPHONE)
         GetMobile(out h, out v);
 #else

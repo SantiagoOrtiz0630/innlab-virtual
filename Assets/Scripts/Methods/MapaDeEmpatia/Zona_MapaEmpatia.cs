@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Zona_MapaEmpatia : MonoBehaviour
@@ -21,7 +20,7 @@ public class Zona_MapaEmpatia : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         foreach (Collider p in assignedPostIts)
         {
             PostIt postIt = p.GetComponent<PostIt>();

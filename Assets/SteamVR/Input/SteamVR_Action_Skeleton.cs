@@ -1,12 +1,9 @@
 ﻿//======= Copyright (c) Valve Corporation, All rights reserved. ===============
 
-using UnityEngine;
-using System.Collections;
 using System;
-
 using System.Runtime.InteropServices;
-using System.Collections.Generic;
 using System.Text;
+using UnityEngine;
 
 namespace Valve.VR
 {
@@ -336,7 +333,7 @@ namespace Valve.VR
         {
             if (copy)
                 return (Vector3[])sourceMap[SteamVR_Input_Sources.Any].bonePositions.Clone();
-            
+
             return sourceMap[SteamVR_Input_Sources.Any].bonePositions;
         }
 
@@ -688,7 +685,7 @@ namespace Valve.VR
 
         public static Quaternion steamVRFixUpRotation = Quaternion.AngleAxis(Mathf.PI * Mathf.Rad2Deg, Vector3.up);
     }
-    
+
     public class SteamVR_Action_Skeleton_Source_Map : SteamVR_Action_Pose_Source_Map<SteamVR_Action_Skeleton_Source>
     {
         protected override SteamVR_Action_Skeleton_Source GetSourceElementForIndexer(SteamVR_Input_Sources inputSource)

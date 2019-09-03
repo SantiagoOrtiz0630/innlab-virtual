@@ -1,26 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Valve.VR.InteractionSystem;
+using UnityEngine.EventSystems;
 
 public class VR_Custom_Pointer : MonoBehaviour
 {
 
-    public float m_DefaultLenght = 5.0f;
+    private float m_DefaultLenght = 5.0f;
     public GameObject m_Dot;
-    public InputModule m_InputModule;
 
     private LineRenderer m_LineRenderer = null;
 
+    public VRInputModule m_InputModule;
+
     private void Awake()
     {
-        m_LineRenderer = GetComponent<LineRenderer>();  
+        m_LineRenderer = GetComponent<LineRenderer>();
     }
 
     // Start is called before the first frame update
     private void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -32,7 +32,8 @@ public class VR_Custom_Pointer : MonoBehaviour
     private void UpdateLine()
     {
         //Use default or distance
-        float targetLenght = m_DefaultLenght;
+        PointerEventData data = m_InputModule.GetData();
+        float targetLenght = data.pointerCurrentRaycast.distance == 0 ? m_DefaultLenght : data.pointerCurrentRaycast.distance;
 
         //RayCast
         RaycastHit hit = CreateRayCast(targetLenght);
@@ -43,7 +44,7 @@ public class VR_Custom_Pointer : MonoBehaviour
         //or based on hit
         if (hit.collider != null)
         {
-            endPosition = hit.point;
+           endPosition = hit.point;
         }
 
         //set position of the dot
@@ -62,6 +63,5 @@ public class VR_Custom_Pointer : MonoBehaviour
 
         return hit;
     }
-
 
 }
