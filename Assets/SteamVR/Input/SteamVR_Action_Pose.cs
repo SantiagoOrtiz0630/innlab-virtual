@@ -1,8 +1,11 @@
 ﻿//======= Copyright (c) Valve Corporation, All rights reserved. ===============
 
-using System;
-using System.Runtime.InteropServices;
 using UnityEngine;
+using System.Collections;
+using System;
+using Valve.VR;
+using System.Runtime.InteropServices;
+using System.Collections.Generic;
 
 namespace Valve.VR
 {
@@ -432,8 +435,8 @@ namespace Valve.VR
 
         /// <summary>Event fires when the device bound to this action is connected or disconnected</summary>
         public event SteamVR_Action_Pose.DeviceConnectedChangeHandler onDeviceConnectedChanged;
-
-
+        
+        
 
         /// <summary>True when the orientation of the pose has changhed more than changeTolerance in the last update. Note: Will only return true if the action is also active.</summary>
         public override bool changed { get; protected set; }
@@ -511,7 +514,7 @@ namespace Valve.VR
 
         /// <summary>The angular velocity for this pose during the previous update</summary>
         public Vector3 lastAngularVelocity { get; protected set; }
-
+        
 
         protected InputPoseActionData_t poseActionData = new InputPoseActionData_t();
 
@@ -664,7 +667,7 @@ namespace Valve.VR
             transformToUpdate.localPosition = localPosition;
             transformToUpdate.localRotation = localRotation;
         }
-
+        
         protected virtual void CheckAndSendEvents()
         {
             if (trackingState != lastTrackingState && onTrackingChanged != null)
@@ -734,7 +737,7 @@ namespace Valve.VR
 
         /// <summary>The local velocity of this pose relative to the universe origin</summary>
         Vector3 velocity { get; }
-
+        
         /// <summary>The local angular velocity of this pose relative to the universe origin</summary>
         Vector3 angularVelocity { get; }
 

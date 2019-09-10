@@ -1,11 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Reflection;
-using UnityEditor;
-using UnityEditorInternal;
+﻿using UnityEditor;
 using UnityEngine;
+
+using System.CodeDom;
+using Microsoft.CSharp;
+using System.IO;
+using System.CodeDom.Compiler;
+
+using System.Linq;
+using System.Collections.Generic;
+using System.Reflection;
+using System.Linq.Expressions;
+using System;
+using UnityEditorInternal;
+using Valve.Newtonsoft.Json;
 
 namespace Valve.VR
 {
@@ -392,11 +399,11 @@ namespace Valve.VR
             }
 
 #if UNITY_2017_1_OR_NEWER
-            if (EditorApplication.isCompiling)
-            {
-                EditorGUI.LabelField(new Rect(0, 0, 100, 20), "Compiling...");
-                return; //ongui gets more fussy after 2017
-            }
+        if (EditorApplication.isCompiling)
+        {
+            EditorGUI.LabelField(new Rect(0, 0, 100, 20), "Compiling...");
+            return; //ongui gets more fussy after 2017
+        }
 #endif
             CheckInitialized();
 

@@ -1,8 +1,11 @@
 ﻿//======= Copyright (c) Valve Corporation, All rights reserved. ===============
 
-using System;
-using System.Runtime.InteropServices;
 using UnityEngine;
+using System.Collections;
+using System;
+using Valve.VR;
+using System.Runtime.InteropServices;
+using System.Collections.Generic;
 
 namespace Valve.VR
 {
@@ -66,7 +69,7 @@ namespace Valve.VR
 
         /// <summary><strong>[Shortcut to: SteamVR_Input_Sources.Any]</strong> (previous update) True when the boolean action is false and the last state was true</summary>
         public bool lastStateUp { get { return sourceMap[SteamVR_Input_Sources.Any].lastStateUp; } }
-
+        
 
         public SteamVR_Action_Boolean() { }
 
@@ -219,7 +222,7 @@ namespace Valve.VR
             InitAfterDeserialize();
         }
     }
-
+    
     public class SteamVR_Action_Boolean_Source_Map : SteamVR_Action_In_Source_Map<SteamVR_Action_Boolean_Source>
     {
     }
@@ -379,7 +382,7 @@ namespace Valve.VR
                 onActiveChange.Invoke(booleanAction, inputSource, activeBinding);
         }
     }
-
+    
     public interface ISteamVR_Action_Boolean : ISteamVR_Action_In_Source
     {
         /// <summary>The current value of the boolean action. Note: Will only return true if the action is also active.</summary>

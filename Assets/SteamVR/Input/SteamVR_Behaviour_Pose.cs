@@ -1,6 +1,10 @@
 ﻿//======= Copyright (c) Valve Corporation, All rights reserved. ===============
 
+using System;
+using System.Threading;
 using UnityEngine;
+using UnityEngine.Events;
+using Valve.VR;
 
 namespace Valve.VR
 {
@@ -63,7 +67,7 @@ namespace Valve.VR
         protected int deviceIndex = -1;
 
         protected SteamVR_HistoryBuffer historyBuffer = new SteamVR_HistoryBuffer(30);
-
+        
 
         protected virtual void Start()
         {

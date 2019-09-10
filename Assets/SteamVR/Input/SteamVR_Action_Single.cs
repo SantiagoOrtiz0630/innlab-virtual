@@ -176,7 +176,7 @@ namespace Valve.VR
             InitAfterDeserialize();
         }
     }
-
+    
     public class SteamVR_Action_Single_Source_Map : SteamVR_Action_In_Source_Map<SteamVR_Action_Single_Source>
     {
     }
@@ -294,7 +294,7 @@ namespace Valve.VR
             EVRInputError err = OpenVR.Input.GetAnalogActionData(handle, ref actionData, actionData_size, SteamVR_Input_Source.GetHandle(inputSource));
             if (err != EVRInputError.None)
                 Debug.LogError("<b>[SteamVR]</b> GetAnalogActionData error (" + fullPath + "): " + err.ToString() + " handle: " + handle.ToString());
-
+            
             updateTime = Time.realtimeSinceStartup;
 
             changed = false;
@@ -330,7 +330,7 @@ namespace Valve.VR
                 onActiveChange.Invoke(singleAction, inputSource, activeBinding);
         }
     }
-
+    
     public interface ISteamVR_Action_Single : ISteamVR_Action_In_Source
     {
         /// <summary>The current float value of the action. 

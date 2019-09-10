@@ -1,7 +1,11 @@
 ﻿//======= Copyright (c) Valve Corporation, All rights reserved. ===============
 
-using System.Collections.Generic;
+using System;
+using System.Collections;
 using UnityEngine;
+using Valve.VR;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Valve.VR
 {
@@ -33,7 +37,7 @@ namespace Valve.VR
 
         [SerializeField]
         protected int previewPoseSelection = 0;
-
+        
         public int blendPoseCount { get { return blendPoses.Length; } }
 
         public List<PoseBlendingBehaviour> blendingBehaviours = new List<PoseBlendingBehaviour>();
@@ -79,12 +83,12 @@ namespace Valve.VR
         public void SetBlendingBehaviourValue(string behaviourName, float value)
         {
             PoseBlendingBehaviour behaviour = blendingBehaviours.Find(b => b.name == behaviourName);
-            if (behaviour == null)
+            if(behaviour == null)
             {
                 Debug.LogError("[SteamVR] Blending Behaviour: " + behaviourName + " not found on Skeleton Poser: " + gameObject.name);
                 return;
             }
-            if (behaviour.type != PoseBlendingBehaviour.BlenderTypes.Manual)
+            if(behaviour.type != PoseBlendingBehaviour.BlenderTypes.Manual)
             {
                 Debug.LogWarning("[SteamVR] Blending Behaviour: " + behaviourName + " is not a manual behaviour. Its value will likely be overriden.");
             }
@@ -243,7 +247,7 @@ namespace Valve.VR
             // let the pose be updated again the next frame
             poseUpdatedThisFrame = false;
         }
-
+        
         /// <summary>Weighted average of n vector3s</summary>
         protected Vector3 BlendVectors(Vector3[] vectors, float[] weights)
         {
@@ -311,7 +315,7 @@ namespace Valve.VR
                     SteamVR_Skeleton_FingerExtensionTypes extensionType = poseHand.GetMovementTypeForBone(boneIndex);
 
                     //do target pose mirroring on left hand
-                    if (inputSource == SteamVR_Input_Sources.LeftHand)
+                    if(inputSource == SteamVR_Input_Sources.LeftHand)
                     {
                         SteamVR_Behaviour_Skeleton.MirrorBonePosition(ref skeletonAction.bonePositions[boneIndex], ref additivePositionBuffer[boneIndex], boneIndex);
                         SteamVR_Behaviour_Skeleton.MirrorBoneRotation(ref skeletonAction.boneRotations[boneIndex], ref additiveRotationBuffer[boneIndex], boneIndex);
@@ -335,7 +339,7 @@ namespace Valve.VR
                         // lerp to open pose by fingercurl
                         snapshot.bonePositions[boneIndex] = Vector3.Lerp(poseHand.bonePositions[boneIndex], additivePositionBuffer[boneIndex], 1 - skeletonAction.fingerCurls[fingerIndex]);
                         snapshot.boneRotations[boneIndex] = Quaternion.Lerp(poseHand.boneRotations[boneIndex], additiveRotationBuffer[boneIndex], 1 - skeletonAction.fingerCurls[fingerIndex]);
-
+                        
 
                     }
                     else if (extensionType == SteamVR_Skeleton_FingerExtensionTypes.Contract)

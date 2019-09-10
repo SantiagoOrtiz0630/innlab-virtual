@@ -1,8 +1,11 @@
 ﻿//======= Copyright (c) Valve Corporation, All rights reserved. ===============
 
-using System;
-using System.Runtime.InteropServices;
 using UnityEngine;
+using System.Collections;
+using System;
+using Valve.VR;
+using System.Runtime.InteropServices;
+using System.Collections.Generic;
 
 namespace Valve.VR
 {
@@ -337,7 +340,7 @@ namespace Valve.VR
                 onActiveChange.Invoke(vector2Action, inputSource, activeBinding);
         }
     }
-
+    
     public interface ISteamVR_Action_Vector2 : ISteamVR_Action_In_Source
     {
         /// <summary>The current float value of the action. 

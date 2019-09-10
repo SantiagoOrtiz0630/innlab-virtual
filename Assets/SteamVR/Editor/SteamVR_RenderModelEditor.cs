@@ -4,10 +4,10 @@
 //
 //=============================================================================
 
-using System.Collections.Generic;
-using System.Text;
-using UnityEditor;
 using UnityEngine;
+using UnityEditor;
+using System.Text;
+using System.Collections.Generic;
 
 namespace Valve.VR
 {

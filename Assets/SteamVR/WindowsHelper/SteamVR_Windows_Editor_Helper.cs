@@ -1,4 +1,7 @@
-﻿namespace Valve.VR
+﻿using UnityEngine;
+using System.Collections;
+
+namespace Valve.VR
 {
     public class SteamVR_Windows_Editor_Helper
     {
@@ -16,7 +19,7 @@
         public static BrowserApplication GetDefaultBrowser()
         {
 #if UNITY_EDITOR
-#if UNITY_STANDALONE_WIN
+    #if UNITY_STANDALONE_WIN
             const string userChoice = @"Software\Microsoft\Windows\Shell\Associations\UrlAssociations\http\UserChoice";
             using (Microsoft.Win32.RegistryKey userChoiceKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(userChoice))
             {
@@ -48,9 +51,9 @@
                 else
                     return BrowserApplication.Unknown;
             }
-#else
+    #else
             return BrowserApplication.Firefox;
-#endif
+    #endif
 #else
             return BrowserApplication.Firefox;
 #endif

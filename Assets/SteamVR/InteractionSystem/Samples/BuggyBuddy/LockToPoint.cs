@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 
 namespace Valve.VR.InteractionSystem.Sample
@@ -11,13 +13,13 @@ namespace Valve.VR.InteractionSystem.Sample
 
         private float dropTimer;
         private Interactable interactable;
-
+        
         private void Start()
         {
             interactable = GetComponent<Interactable>();
             body = GetComponent<Rigidbody>();
         }
-
+        
         private void FixedUpdate()
         {
             bool used = false;

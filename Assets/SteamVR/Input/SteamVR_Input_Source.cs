@@ -1,9 +1,13 @@
 ﻿//======= Copyright (c) Valve Corporation, All rights reserved. ===============
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using UnityEngine;
+using System.Collections;
+using System;
+using Valve.VR;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.ComponentModel;
+using System.Collections.Generic;
 
 namespace Valve.VR
 {
@@ -14,7 +18,7 @@ namespace Valve.VR
 
         private static Type enumType = typeof(SteamVR_Input_Sources);
         private static Type descriptionType = typeof(DescriptionAttribute);
-
+        
         private static SteamVR_Input_Sources[] allSources;
 
         public static ulong GetHandle(SteamVR_Input_Sources inputSource)
@@ -75,7 +79,7 @@ namespace Valve.VR
 
                 allSourcesList.Add((SteamVR_Input_Sources)enumIndex);
             }
-
+            
             allSources = allSourcesList.ToArray();
         }
     }

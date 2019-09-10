@@ -1,6 +1,8 @@
-﻿using System.IO;
+﻿using UnityEngine;
 using UnityEditor;
+using System.Collections;
 using UnityEditor.Callbacks;
+using System.IO;
 
 namespace Valve.VR
 {
@@ -10,7 +12,7 @@ namespace Valve.VR
         public static void OnPostprocessBuild(BuildTarget target, string pathToBuiltProject)
         {
             SteamVR_Input.InitializeFile();
-
+            
             FileInfo fileInfo = new FileInfo(pathToBuiltProject);
             string buildPath = Path.Combine(fileInfo.Directory.FullName, Path.GetDirectoryName(SteamVR_Settings.instance.actionsFilePath));
 

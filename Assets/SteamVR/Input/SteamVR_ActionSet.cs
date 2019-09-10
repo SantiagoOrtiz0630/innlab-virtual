@@ -1,8 +1,12 @@
 ﻿//======= Copyright (c) Valve Corporation, All rights reserved. ===============
 
-using System;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
+using System;
+using Valve.VR;
+using System.Runtime.InteropServices;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Valve.VR
 {
@@ -278,7 +282,7 @@ namespace Valve.VR
         {
             OpenVR.Input.ShowBindingsForActionSet(emptySetCache, 0, 0);
         }
-
+        
 
         public bool ReadRawSetActive(SteamVR_Input_Sources inputSource)
         {

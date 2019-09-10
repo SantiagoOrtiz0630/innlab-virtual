@@ -1,6 +1,17 @@
-﻿using System.Collections.Generic;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
+
+using System.CodeDom;
+using Microsoft.CSharp;
+using System.IO;
+using System.CodeDom.Compiler;
+
+using System.Linq;
+using System.Collections.Generic;
+using System.Reflection;
+using System.Linq.Expressions;
+using System;
+using UnityEditorInternal;
 
 namespace Valve.VR
 {
@@ -74,7 +85,7 @@ namespace Valve.VR
             {
                 labelStyle = new GUIStyle(EditorStyles.textField);
                 labelStyle.normal.background = Texture2D.whiteTexture;
-
+                
                 setLabelStyle = new GUIStyle(EditorStyles.label);
                 setLabelStyle.wordWrap = true;
                 setLabelStyle.normal.background = Texture2D.whiteTexture;
@@ -109,7 +120,7 @@ namespace Valve.VR
             }
 
             DrawMap();
-
+            
             for (int sourceIndex = 0; sourceIndex < sources.Length; sourceIndex++)
             {
                 SteamVR_Input_Sources source = sources[sourceIndex];
@@ -139,11 +150,11 @@ namespace Valve.VR
                     }
 
                     EditorGUILayout.BeginHorizontal();
-                    setFoldouts[source][set.GetShortName()] = EditorGUILayout.Foldout(setFoldouts[source][set.GetShortName()], set.GetShortName());
+                        setFoldouts[source][set.GetShortName()] = EditorGUILayout.Foldout(setFoldouts[source][set.GetShortName()], set.GetShortName());
 
-                    EditorGUILayout.LabelField(activeText, labelStyle);
+                        EditorGUILayout.LabelField(activeText, labelStyle);
 
-                    GUI.backgroundColor = defaultColor;
+                        GUI.backgroundColor = defaultColor;
                     EditorGUILayout.EndHorizontal();
 
                     if (setFoldouts[source][set.GetShortName()] == false)

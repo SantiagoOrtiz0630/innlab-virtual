@@ -1,12 +1,14 @@
 ﻿//======= Copyright (c) Valve Corporation, All rights reserved. ===============
 
+using UnityEngine;
+using Valve.VR;
+using System.IO;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Reflection;
-using System.Text;
-using UnityEngine;
+using System.Linq;
 using Valve.Newtonsoft.Json;
+using System.Text;
 
 namespace Valve.VR
 {
@@ -14,7 +16,6 @@ namespace Valve.VR
     {
         public const string defaultInputGameObjectName = "[SteamVR Input]";
         private const string localizationKeyName = "localization";
-        public static readonly object _default;
         public static string actionsFilePath;
 
         /// <summary>True if the actions file has been initialized</summary>
@@ -50,7 +51,7 @@ namespace Valve.VR
         {
             get
             {
-                return Time.frameCount >= (startupFrame - 1) && Time.frameCount <= (startupFrame + 1);
+                return Time.frameCount >= (startupFrame-1) && Time.frameCount <= (startupFrame+1);
             }
         }
 

@@ -4,8 +4,9 @@
 //
 //=============================================================================
 
-using System.Collections;
 using UnityEngine;
+using System.Collections;
+using Valve.VR;
 
 
 namespace Valve.VR
@@ -16,7 +17,7 @@ namespace Valve.VR
         public string externalCameraConfigPath = "externalcamera.cfg";
 
         public static EVREye eye { get; private set; }
-
+        
         public static SteamVR_Render instance { get { return SteamVR_Behaviour.instance.steamvr_render; } }
 
         static private bool isQuitting;
@@ -146,7 +147,7 @@ namespace Valve.VR
                     RenderExternalCamera();
             }
         }
-
+        
         private bool? doesPathExist = null;
         private bool CheckExternalCamera()
         {
@@ -315,7 +316,7 @@ namespace Valve.VR
                 SteamVR_ExternalCamera_LegacyManager.SubscribeToNewPoses();
 
 #if UNITY_2017_1_OR_NEWER
-            Application.onBeforeRender += OnBeforeRender;
+		    Application.onBeforeRender += OnBeforeRender;
 #else
             Camera.onPreCull += OnCameraPreCull;
 #endif
@@ -339,7 +340,7 @@ namespace Valve.VR
             SteamVR_Events.System(EVREventType.VREvent_RequestScreenshot).Remove(OnRequestScreenshot);
 
 #if UNITY_2017_1_OR_NEWER
-            Application.onBeforeRender -= OnBeforeRender;
+		    Application.onBeforeRender -= OnBeforeRender;
 #else
             Camera.onPreCull -= OnCameraPreCull;
 #endif
@@ -360,8 +361,8 @@ namespace Valve.VR
         }
 
 #if UNITY_2017_1_OR_NEWER
-        void OnBeforeRender()
-        {
+	    void OnBeforeRender() 
+        { 
             if (SteamVR.active == false)
                 return;
 
